@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Will Flowers - Python</title><link href="https://flowersw.github.io/" rel="alternate"></link><link href="https://flowersw.github.io/feeds/python.atom.xml" rel="self"></link><id>https://flowersw.github.io/</id><updated>2017-07-21T04:40:34-04:00</updated><entry><title>First blog post</title><link href="https://flowersw.github.io/posts/python/2017/Jul/21/first-post/" rel="alternate"></link><published>2017-07-21T04:40:34-04:00</published><updated>2017-07-21T04:40:34-04:00</updated><author><name>Will Flowers</name></author><id>tag:flowersw.github.io,2017-07-21:/posts/python/2017/Jul/21/first-post/</id><summary type="html">&lt;p&gt;Just testing some things out&amp;#8230;
+Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.&lt;br&gt;
+Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Just testing some things out&amp;#8230;
+Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.&lt;br&gt;
+Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id&amp;nbsp;erat.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nullam&amp;nbsp;rutrum.&lt;/li&gt;
+&lt;li&gt;Mauris mollis tincidunt&amp;nbsp;felis.&lt;/li&gt;
+&lt;li&gt;Pellentesque dapibus suscipit&amp;nbsp;ligula.&lt;/li&gt;
+&lt;li&gt;Proin quam nisl, tincidunt et, mattis eget, convallis nec,&amp;nbsp;purus.&lt;/li&gt;
+&lt;li&gt;Nunc porta vulputate&amp;nbsp;tellus.&lt;/li&gt;
+&lt;li&gt;Pellentesque dapibus suscipit&amp;nbsp;ligula.&lt;/li&gt;
+&lt;li&gt;Curabitur lacinia pulvinar nibh.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan&amp;nbsp;nisl.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="pelican"></category><category term="publishing"></category></entry></feed>
