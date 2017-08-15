@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Will Flowers - Programming</title><link href="https://flowersw.github.io/" rel="alternate"></link><link href="https://flowersw.github.io/feeds/programming.atom.xml" rel="self"></link><id>https://flowersw.github.io/</id><updated>2017-08-14T00:50:07-04:00</updated><entry><title>Tipue Search</title><link href="https://flowersw.github.io/posts/programming/2017/Aug/14/tipue-search/" rel="alternate"></link><published>2017-08-14T00:50:07-04:00</published><updated>2017-08-14T00:50:07-04:00</updated><author><name>Will Flowers</name></author><id>tag:flowersw.github.io,2017-08-14:/posts/programming/2017/Aug/14/tipue-search/</id><summary type="html">&lt;!-- Summary: How I integrated search functionality into a Pelican website, using the tipue plugin. --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Will Flowers - Programming</title><link href="https://flowersw.github.io/" rel="alternate"></link><link href="https://flowersw.github.io/feeds/programming.atom.xml" rel="self"></link><id>https://flowersw.github.io/</id><updated>2017-08-15T08:02:14-04:00</updated><entry><title>Tipue Search</title><link href="https://flowersw.github.io/posts/programming/2017/Aug/15/tipue-search/" rel="alternate"></link><published>2017-08-15T08:02:14-04:00</published><updated>2017-08-15T08:02:14-04:00</updated><author><name>Will Flowers</name></author><id>tag:flowersw.github.io,2017-08-15:/posts/programming/2017/Aug/15/tipue-search/</id><summary type="html">&lt;!-- Summary: How I integrated search functionality into a Pelican website, using the tipue plugin. --&gt;
 
 &lt;p&gt;I recently reconstructed my personal website using &lt;a href="http://docs.getpelican.com/en/stable/index.html" title="Pelican"&gt;Pelican&lt;/a&gt;, and I went with a pre-made theme called &lt;a href="https://github.com/alexandrevicenzi/Flex" title="Flex"&gt;Flex&lt;/a&gt;. This theme is a solid one, but lacked search capability out of the …&lt;/p&gt;</summary><content type="html">&lt;!-- Summary: How I integrated search functionality into a Pelican website, using the tipue plugin. --&gt;
 
@@ -21,18 +21,67 @@ Fortunately, there is a Pelican plugin called &lt;a href="https://github.com/get
 &lt;li&gt;
 &lt;p&gt;Include the tipuesearch css and search box in your &lt;code&gt;base.html&lt;/code&gt; template.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;In your &lt;head&gt; section, include the tipuesearch css
-&lt;code&gt;&amp;lt;link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/css/tipuesearch.css"&amp;gt;&lt;/code&gt;
-&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Put the search box form in wherever you want to put&amp;nbsp;it:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Search Box" src="https://flowersw.github.io/images/searchbox-ss.png"&gt;&lt;/p&gt;
+&lt;li&gt;In your &lt;head&gt; section, include the tipuesearch css&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;/&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;THEME_STATIC_DIR&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;/tipuesearch/css/tipuesearch.css&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Put the search box form in wherever you want to put it:&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;form&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;search-box&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;action=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/search.html&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;q&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tipue_search_input&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;pattern=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;.{3,}&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;title=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;At least 3 characters&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;required&lt;/span&gt; &lt;span class="na"&gt;placeholder=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Search&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Create the &lt;code&gt;search.html&lt;/code&gt; page and place it in the templates folder of your theme directory. This is where search results will be displayed, and my version is&amp;nbsp;below.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Search.html" src="https://flowersw.github.io/images/searchhtml-ss.png"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;base.html&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;title&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt; &lt;span class="ni"&gt;&amp;amp;ndash;&lt;/span&gt; &lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="kp"&gt;_&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Search Results&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;}}{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;more_head&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;THEME_STATIC_DIR&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/tipuesearch/css/normalize.css&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+
+&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;\&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;THEME_STATIC_DIR&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/tipuesearch/tipuesearch_content.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;\&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;THEME_STATIC_DIR&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/tipuesearch/tipuesearch_set.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;\&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;THEME_STATIC_DIR&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;/tipuesearch/tipuesearch.min.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;more_head&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;content&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;article&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;header&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="kp"&gt;_&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Search Results&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tipue_search_content&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;content&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;additional_js&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    $(document).ready(function() {
+      $(&amp;#39;#tipue_search_input&amp;#39;).tipuesearch({
+          &amp;#39;mode&amp;#39; : &amp;#39;json&amp;#39;,
+          &amp;#39;show&amp;#39;: 10,
+          &amp;#39;newWindow&amp;#39;: false,
+          &amp;#39;wholeWords&amp;#39;: false,
+          &amp;#39;contentLocation&amp;#39;: &amp;#39;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;/tipuesearch_content.json&amp;#39;
+      });
+    }); defer
+  &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;additional_js&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Don&amp;#8217;t forget to add &lt;code&gt;search&lt;/code&gt; to your DIRECT_TEMPLATES in your&amp;nbsp;pelicanconf.py&lt;/p&gt;
