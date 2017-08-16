@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Will Flowers</title><link href="http://willflowers.space/" rel="alternate"></link><link href="http://willflowers.space/feeds/all.atom.xml" rel="self"></link><id>http://willflowers.space/</id><updated>2017-08-15T08:02:14-04:00</updated><entry><title>Tipue Search</title><link href="http://willflowers.space/posts/programming/2017/Aug/15/tipue-search/" rel="alternate"></link><published>2017-08-15T08:02:14-04:00</published><updated>2017-08-15T08:02:14-04:00</updated><author><name>Will Flowers</name></author><id>tag:willflowers.space,2017-08-15:/posts/programming/2017/Aug/15/tipue-search/</id><summary type="html">&lt;!-- Summary: How I integrated search functionality into a Pelican website, using the tipue plugin. --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Will Flowers</title><link href="http://willflowers.space/" rel="alternate"></link><link href="http://willflowers.space/feeds/all.atom.xml" rel="self"></link><id>http://willflowers.space/</id><updated>2017-08-15T21:37:46-04:00</updated><entry><title>Tipue Search</title><link href="http://willflowers.space/posts/programming/2017/Aug/15/tipue-search/" rel="alternate"></link><published>2017-08-15T21:37:46-04:00</published><updated>2017-08-15T21:37:46-04:00</updated><author><name>Will Flowers</name></author><id>tag:willflowers.space,2017-08-15:/posts/programming/2017/Aug/15/tipue-search/</id><summary type="html">&lt;!-- Summary: How I integrated search functionality into a Pelican website, using the tipue plugin. --&gt;
 
 &lt;p&gt;I recently reconstructed my personal website using &lt;a href="http://docs.getpelican.com/en/stable/index.html" title="Pelican"&gt;Pelican&lt;/a&gt;, and I went with a pre-made theme called &lt;a href="https://github.com/alexandrevicenzi/Flex" title="Flex"&gt;Flex&lt;/a&gt;. This theme is a solid one, but lacked search capability out of the …&lt;/p&gt;</summary><content type="html">&lt;!-- Summary: How I integrated search functionality into a Pelican website, using the tipue plugin. --&gt;
 
@@ -7,13 +7,22 @@
 Fortunately, there is a Pelican plugin called &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search" title="Tipue Search Plugin"&gt;Tipue Search&lt;/a&gt; which integrates the &lt;a href="http://www.tipue.com/" title="Tipue"&gt;Tipue&lt;/a&gt; JQuery plugin into&amp;nbsp;Pelican.&lt;/p&gt;
 &lt;h3&gt;Installation into&amp;nbsp;Pelican&lt;/h3&gt;
 &lt;p&gt;It&amp;#8217;s easiest to download all of the pelican plugins. I cloned mine at the same level as my pelican repo. You&amp;#8217;ll need BeautifulSoup as&amp;nbsp;well.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git clone --recursive https://github.com/getpelican/pelican-plugins&lt;/code&gt;
-&lt;br&gt;
-&lt;code&gt;pip install beautifulsoup4&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone --recursive https://github.com/getpelican/pelican-plugins
+pip install beautifulsoup4
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Then, point to the tipue_search plugin in your pelicanconf.py&amp;nbsp;file:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;PLUGIN_PATHS = ['path/to/pelican-plugins(can be relative)']&lt;/code&gt;
-&lt;br&gt;
-&lt;code&gt;PLUGINS = ['tipue_search']&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;PLUGIN_PATHS = [&amp;#39;path/to/pelican-plugins(can be relative)&amp;#39;]
+PLUGINS = [&amp;#39;tipue_search&amp;#39;]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Don&amp;#8217;t forget to add &lt;code&gt;search&lt;/code&gt; to your DIRECT_TEMPLATES in your&amp;nbsp;pelicanconf.py&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;`DIRECT_TEMPLATES = [&amp;#39;index&amp;#39;, &amp;#39;categories&amp;#39;, &amp;#39;authors&amp;#39;, &amp;#39;archives&amp;#39;, &amp;#39;search&amp;#39;]`
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h3&gt;Installation into your&amp;nbsp;Theme&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="http://www.tipue.com/search/tipuesearch.zip" title="Tipue download"&gt;Download&lt;/a&gt; tipue and unpack&amp;nbsp;it.&lt;/li&gt;
@@ -41,7 +50,7 @@ Fortunately, there is a Pelican plugin called &lt;a href="https://github.com/get
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Create the &lt;code&gt;search.html&lt;/code&gt; page and place it in the templates folder of your theme directory. This is where search results will be displayed, and my version is&amp;nbsp;below.&lt;/p&gt;
+&lt;p&gt;Create the &lt;code&gt;search.html&lt;/code&gt; page and place it in the templates folder of your theme directory. This is where search results will be displayed. My version is&amp;nbsp;below:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;base.html&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;title&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt; &lt;span class="ni"&gt;&amp;amp;ndash;&lt;/span&gt; &lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="kp"&gt;_&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Search Results&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;}}{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
@@ -67,7 +76,7 @@ Fortunately, there is a Pelican plugin called &lt;a href="https://github.com/get
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;content&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;additional_js&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="err"&gt;defer&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
     $(document).ready(function() {
       $(&amp;#39;#tipue_search_input&amp;#39;).tipuesearch({
           &amp;#39;mode&amp;#39; : &amp;#39;json&amp;#39;,
@@ -76,21 +85,28 @@ Fortunately, there is a Pelican plugin called &lt;a href="https://github.com/get
           &amp;#39;wholeWords&amp;#39;: false,
           &amp;#39;contentLocation&amp;#39;: &amp;#39;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;SITEURL&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;/tipuesearch_content.json&amp;#39;
       });
-    }); defer
+    });
   &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;additional_js&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Extras&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Feel free to customize the way the search box looks. I added rounded edges by setting &lt;code&gt;border-radius: 15px;&lt;/code&gt; on the &lt;code&gt;#tipue_search_input&lt;/code&gt; element in the &lt;code&gt;tipuesearch.css&lt;/code&gt; file.&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Don&amp;#8217;t forget to add &lt;code&gt;search&lt;/code&gt; to your DIRECT_TEMPLATES in your&amp;nbsp;pelicanconf.py&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'search']&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;On the &lt;code&gt;tipuesearch&lt;/code&gt; function&amp;nbsp;above:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To show more or less results on the results page, adjust the &lt;code&gt;show&lt;/code&gt; parameter
+&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;If you want to only include results that include the entire word searched for, set &lt;code&gt;wholeWords&lt;/code&gt; to &lt;code&gt;False&lt;/code&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;The tipue_search pelican plugin expects that you will use tipue search&amp;#8217;s &lt;code&gt;json&lt;/code&gt; mode. If you decide to use a different mode, you will likely need to edit the source code of the plugin. Other tipue search options are displayed &lt;a href="http://www.tipue.com/search/docs/?d=3" title="Tipue Options"&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Feel free to customize the way the search box looks. I added rounded edges by setting &lt;code&gt;border-radius: 15px;&lt;/code&gt; on the #tipue_search_input element in the &lt;code&gt;tipuesearch.css&lt;/code&gt; file.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Enjoy fast, accurate search with &lt;a href="http://www.tipue.com/search/docs/" title="Tipue"&gt;Tipue&lt;/a&gt;!&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;</content><category term="pelican"></category><category term="publishing"></category><category term="jquery"></category><category term="python"></category><category term="jinja2"></category><category term="tipue"></category></entry></feed>
+&lt;/ol&gt;
+&lt;p&gt;Enjoy fast, accurate search with &lt;a href="http://www.tipue.com/search/docs/" title="Tipue"&gt;Tipue&lt;/a&gt;!&lt;/p&gt;</content><category term="pelican"></category><category term="publishing"></category><category term="jquery"></category><category term="python"></category><category term="jinja2"></category><category term="tipue"></category></entry></feed>
